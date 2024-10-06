@@ -6,22 +6,7 @@ int board[22][22];
 
 int maxi = 0;
 
-// void rotate(int rot){ // board 회전
-//     int tmp[22][22];
-//     for (int i = 0; i < N; i++){
-//         for (int j = 0; j < N; j++){
-//             tmp[j][N - 1 - i] = board[i][j];
-//         }
-//     }
-//     for (int i = 0; i < N; i++){
-//         for (int j = 0; j < N; j++){
-//             board[i][j] = tmp[i][j];
-//         }
-//     }
-// }
-
 void rotate(int rot){ // board 회전
-    // if (rot == 0) return;
     int tmp[22][22];
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
@@ -54,13 +39,15 @@ void play(){
                         num.push(board[i][j]);
                     }
                 }
+                // 스택이 빈다면, top, pop 할 수 없음
                 else {
                     num.push(board[i][j]);
                 }
             }
         }
-        while(!num.empty()) {
-            ans[i][idx++] = num.top(); num.pop();
+        // 맨 마지막 원소가 남아 있다면
+        if (!num.empty()){
+            ans[i][idx] = num.top(); num.pop();
         }
     }
     // board update
@@ -85,6 +72,7 @@ void dfs(int dep){
         rotate(rot);
         play();
         dfs(dep + 1);
+        // 복구
         memcpy(board, tmp, sizeof(board));
     }
 }
