@@ -1,9 +1,9 @@
+// stack 없이 구현
 #include <bits/stdc++.h>
 using namespace std;
 
 int N;
 int board[22][22];
-
 int maxi = 0;
 
 void rotate(int rot){ // board 회전
@@ -24,31 +24,21 @@ void play(){
     for (int i = 0; i < N; i++) fill(ans[i], ans[i] + N, 0);
     
     for (int i = 0; i < N; i++){
-        stack<int> num;
+        int num = 0;
         int idx = 0;
         for (int j = 0; j < N; j++){
-            if (board[i][j] != 0){
-                if (!num.empty()){
-                    if (num.top() == board[i][j]){
-                        ans[i][idx++] = num.top() * 2;
-                        num.pop();
-                    }
-                    else {
-                        ans[i][idx++] = num.top();
-                        num.pop();
-                        num.push(board[i][j]);
-                    }
-                }
-                // 스택이 빈다면, top, pop 할 수 없음
-                else {
-                    num.push(board[i][j]);
-                }
+            if (board[i][j] == 0) continue;
+            if (num == 0) num = board[i][j];
+            else if (num == board[i][j]) {
+                ans[i][idx++] = num * 2;
+                num = 0;
+            }
+            else {
+                ans[i][idx++] = num;
+                num = board[i][j];
             }
         }
-        // 맨 마지막 원소가 남아 있다면
-        if (!num.empty()){
-            ans[i][idx] = num.top(); num.pop();
-        }
+        if (num != 0) ans[i][idx] = num;
     }
     // board update
     memcpy(board, ans, sizeof(ans));
