@@ -10,3 +10,6 @@
 - [링크](https://www.codetree.ai/blog/%EC%82%BC%EC%84%B1-sw-%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A4%80%EB%B9%84-%EC%8B%A4%EC%A0%84-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4%EB%B6%80%ED%84%B0-%ED%95%A9%EA%B2%A9-%EC%A0%84%EB%9E%B5/)
 - [실제 후기](https://flik.tistory.com/38)
 - visual studio를 이용할 경우: freopen()
+  - (1) [리소스파일에 새파일 추가](https://zoosso.tistory.com/930)
+  - (2) [디버깅창](https://zoosso.tistory.com/926) (입력: <, 출력: >)
+  - (3) 리소스파일에 기존 파일 추가하는 방법 찾자
