@@ -12,7 +12,7 @@ int maxi = 0;
 
 void rotate(int rot){ // board 회전
     int tmp[22][22];
-    for (int i = 0; i < N; i++){
+    for (int i = 0; i < xN; i++){
         for (int j = 0; j < N; j++){
             if (rot == 0) tmp[i][j] = board[i][j];
             else if (rot == 1) tmp[j][N - 1 - i] = board[i][j];
