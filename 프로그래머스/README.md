@@ -27,7 +27,7 @@
 
 | 번호 | 문제 번호 | 문제 이름 | ! | Level | 소요 시간 | 링크 |
 | ---- | -------- | -------- | -------- | ------ | -------- | -------- |
-| 1 | 42746 | [가장 큰 수](2/42746. 가장 큰 수/가장 큰 수.cpp) | - | 2 | - | [링크](https://programmers.co.kr/learn/courses/30/lessons/42746) |
+| 1 | 42746 | [가장 큰 수](2/42746. 가장 큰 수/가장 큰 수.cpp) | - | 2 | - | [문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42746) |
 
 ### 5. 완전탐색 (Brute Force)
 
@@ -51,7 +51,7 @@
 
 | 번호 | 문제 번호 | 문제 이름 | ! | Level | 소요 시간 | 링크 |
 | ---- | -------- | -------- | -------- | ------ | -------- | -------- |
-| 1 | 42746 | [가장 큰 수](2/42746. 가장 큰 수/가장 큰 수.cpp) | - | 3 | - | [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42746) |
+| 1 | 43163 | [가장 큰 수](3/43163. 단어 변환/단어 변환.cpp) | - | 3 | - | [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/43163) |
 
 ### 9. 이분탐색 (Binary Search)
 
