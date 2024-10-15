@@ -12,7 +12,6 @@ bool cmp(pair<string, string> &a, pair<string, string> &b){
     return 0;
 }
 
-
 string solution(vector<int> numbers) {
     string answer = "";
     
@@ -29,8 +28,7 @@ string solution(vector<int> numbers) {
     sort(num_str, num_str + idx);
     while (idx--) answer += num_str[idx].second;
 
-    // 모두 0인 경우, 
-    if (answer == "") answer = "0";
+    if (answer == "") answer = "0"; // 모두 0인 경우, 
     else {
         while (zeroN--) answer += "0";
     }
