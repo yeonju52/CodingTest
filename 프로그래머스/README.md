@@ -28,6 +28,7 @@
 | 번호 | 문제 번호 | 문제 이름 | ! | Level | 소요 시간 | 링크 |
 | ---- | -------- | -------- | -------- | ------ | -------- | -------- |
 | 1 | 42746 | [가장 큰 수](2/42746. 가장 큰 수/가장 큰 수.cpp) | - | 2 | - | [문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42746) |
+| 2 | 42747 | [H - Index](2/42747. H－Index/H－Index.cpp) | - | 2 | 30m | [문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42747)
 <!--
 ### 5. 완전탐색 (Brute Force)
 
