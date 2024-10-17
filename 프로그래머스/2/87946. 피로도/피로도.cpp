@@ -6,7 +6,7 @@ using namespace std;
 int N, maxi;
 vector<vector<int>> dun;
 
-void comb(int cur, int k, vector<int> vis){
+void comb(int cur, int k, vector<int> &vis){
     if (cur > N) return;
     maxi = max(maxi, cur);
 
