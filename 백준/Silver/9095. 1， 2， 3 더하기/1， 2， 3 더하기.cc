@@ -1,30 +1,22 @@
+#define MAX 15
 #include <iostream>
-#include <vector>
 using namespace std;
 
-int cnt;
-void recursion(int sum, int target){
-    if (sum >= target){
-        if (sum == target){
-            cnt++;
-        }
-        return ;
-    }
-    for (int i = 1; i <= 3; i++){
-        recursion(sum + i, target);
-    }
+int dp[MAX];
 
-}
-
-int main(){
-    int N;
-    int k;
-
-    cin >> N;
-    for (int i = 0; i < N; i++){
-        cin >> k;
-        cnt = 0;
-        recursion(0, k);
-        cout << cnt << endl;
-    }
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	int T; cin >> T;
+	int idx = 0;
+	dp[1] = 1, dp[2] = 1, dp[3] = 1;
+	while (++idx < 12) {
+		dp[idx + 1] += dp[idx];
+		dp[idx + 2] += dp[idx];
+		dp[idx + 3] += dp[idx];
+	}
+	while (T--) {
+		int n; cin >> n;
+		cout << dp[n] << "\n";
+	}
 }
