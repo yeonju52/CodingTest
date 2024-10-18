@@ -2,6 +2,26 @@
 
 ## 대비
 - KT  대비 (10.15 ~ 10.19)
+    - 구현 문제 多
+    - [2022년 상반기1](https://velog.io/@jieun_han/2022%EB%85%84-KT-%EC%8B%A0%EC%9E%85%EC%82%AC%EC%9B%90-%EC%B1%84%EC%9A%A9SW%EA%B0%9C%EB%B0%9C-%EC%BD%94%ED%85%8C-%ED%9B%84%EA%B8%B0)
+    ```
+    1번 구현, 조합
+    - 접근 방법에 있어서 조합을 선택하지 않을 수도 있는데, 필자는 조합 선택 (next_permutation 이용)
+    - 1차원 배열
+    - 체감 난이도: 백준 실버 1
+
+    2번 구현? DP?
+    - 문제를 이해하느라 시간이 많이 소요 -> 결국 풀지는 X
+    - 배열의 길이의 최댓값과 각 원소의 최댓값이 상당히 컸음 -> 아마 구현으로만 풀면 히든 케이스에서 시간 초과가 나오지 않을까 추측 (DP 이용하면 좋을듯)
+    - 체감 난이도: 백준 골드 4
+
+    3번 구현, 조합
+    - next_permutation 이용
+    - 2차원 배열
+    - 체감 난이도: 백준 골드 5
+    ```
+
+    - [ai석사](https://study-hard-cozy.tistory.com/73): 스택, 큐, dfs/bfs, 브루트 포스, 그리디, 정렬
 
 ## Programmers 문제 풀이 진행 상황
 <!--
@@ -52,7 +72,7 @@
 
 | 번호 | 문제 번호 | 문제 이름 | ! | Level | 소요 시간 | 링크 |
 | ---- | -------- | -------- | -------- | ------ | -------- | -------- |
-| 1 | 43163 | [아이템 줍기](아이템 줍기.cpp) | - | 3 | - | [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/43163) |
+| 1 | 43163 | [아이템 줍기](3/87694. 아이템 줍기/아이템 줍기.cpp) | - | 3 | - | [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/43163) |
 | 2 | 87694 | [단어 변환](3/43163. 단어 변환/단어 변환.cpp) | - | 3 | - | [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/87694) |
 <!--
 ### 9. 이분탐색 (Binary Search)
