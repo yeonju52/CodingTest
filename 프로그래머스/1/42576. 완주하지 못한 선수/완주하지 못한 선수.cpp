@@ -1,14 +1,24 @@
-#include <string>
-#include <vector>
-#include <unordered_set>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {
     string answer = "";
-    unordered_multiset<string> part(participant.begin(), participant.end());
-    for (auto name : completion){
-        part.erase(part.find(name));
+    unordered_map<string, int> book;
+    
+    for (auto p : participant){
+        book[p]++;
     }
-    answer = *part.begin();
+    
+    for (auto p : completion){
+        book[p]--;
+    }
+    
+    for (auto p : book) {
+        if (p.second > 0){
+            answer = p.first;
+            break;
+        }
+    }
     return answer;
 }
