@@ -3,16 +3,18 @@
 using namespace std;
 
 bool solution(vector<string> phone_book) {
-    unordered_set<string> books;
-    sort(phone_book.begin(), phone_book.end());
-    for (auto ps : phone_book) {
-        string b = "";
-        for (auto p : ps) {
-            b += p;
-            if (books.find(b) != books.end()) return false;
+    bool answer = true;
+    unordered_set<string> set;
+    for (auto ph : phone_book) {
+        set.insert(ph);
+    }
+    
+    for (auto ph : phone_book) {
+        string val = "";
+        for (auto p : ph) {
+            val += p;
+            if (set.find(val) != set.end() && val != ph) return false;
         }
-        books.insert(ps);
-        
     }
     return true;
 }
