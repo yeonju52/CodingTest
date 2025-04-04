@@ -22,7 +22,7 @@ void rotate(int N, const int src[][MAX], int dst[][MAX]) {
 
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
-			dst[j][N - 1 - i] = src[i][j];
+			dst[i][j] = src[N - 1 - j][i];
 		}
 	}
 	return;
@@ -58,7 +58,7 @@ int main(int argc, char** argv)
 		rotate(N, arr, arr1);
 		rotate(N, arr1, arr2);
 		rotate(N, arr2, arr3);
-		
+
 		cout << "#" << test_case << "\n";
 		for (int i = 0; i < N; i++) {
 			display(N, arr1[i]);
