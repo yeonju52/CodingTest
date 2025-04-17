@@ -2,6 +2,8 @@
 
 [문제 링크](https://www.acmicpc.net/problem/14500) 
 
+#### 풀이시간 70분
+
 ### 성능 요약
 
 메모리: 3988 KB, 시간: 52 ms
