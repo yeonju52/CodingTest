@@ -32,11 +32,7 @@ int main() {
         }
     }
 
-    for (int i = 0; i < MAX; i++) {
-        for (int j = 0; j < MAX; j++) {
-            dist[i][j] = INF;
-        }
-    }
+    fill(&dist[0][0], &dist[0][0] + MAX * MAX, INF);
 
     priority_queue<pos, vector<pos>, greater<pos>> pq;
     pq.push({0, 0, 0});
