@@ -1,16 +1,14 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-int main(){
-    string s = "baekjoon";
-    getline(cin, s);
-
-    vector<int> alpha(122 - 97 + 1, 0);
-    for (char c: s){
-        alpha[c - 97]++;
+int arr[26]; // int len = 'z' - 'a' + 1; cout << len << "\n";
+    
+int main() {
+    string s; cin >> s;
+    for (char& c : s) {
+        arr[c - 'a']++;
     }
-
-    for (int i: alpha){
+    for (int &i : arr) {
         cout << i << " ";
     }
 }
