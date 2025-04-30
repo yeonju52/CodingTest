@@ -1,18 +1,20 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
+const int MAX = 5000000;
 int N, K;
-int A[5000000];
+int arr[MAX];
 
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
+int main() {
+    ios::sync_with_stdio(0);
+    
     cin >> N >> K;
-    for (int i = 0; i < N; i++){
-        cin >> A[i];
+    
+    for (int i = 0; i < N; i++) {
+        cin >> arr[i];
     }
-    sort(A, A + N);
-    cout << A[K - 1] << '\n';
+    
+    sort(arr, arr + N);
+    
+    cout << arr[K -1];
 }
