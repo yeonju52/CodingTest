@@ -1,34 +1,36 @@
 #include <bits/stdc++.h>
 
-const int MAX = 10000;
 using namespace std;
 
-unordered_map<string, vector<string>> adj;
-vector<string> ans;
+const int MAX = 10001;
 
-bool dfs(string cur, int N) {
-    if (ans.size() == N) return true;
+unordered_map<string, multiset<string>> adj;
+int N;
+vector<string> res, ans;
 
-    auto &nxts = adj[cur];
-    for (int i = 0; i < nxts.size(); i++) {
-        string next = nxts[i];
-        ans.push_back(next);
-        nxts.erase(nxts.begin() + i);
-        if (dfs(next, N)) return true;
-        nxts.insert(nxts.begin() + i, next);
-        ans.pop_back();
+bool dfs(string cur) {
+    res.push_back(cur);
+    if (N == res.size()) { ans = res; return true; }
+    auto it = adj[cur].begin();
+    while(it != adj[cur].end()) {
+        auto nptr = it;
+        string nxt = *it;
+        it++;
+        adj[cur].erase(nptr);
+        if(dfs(nxt)) return true;
+        adj[cur].insert(nxt);
     }
-
+    res.pop_back();
     return false;
 }
 
 vector<string> solution(vector<vector<string>> tickets) {
-    for (auto &t : tickets) adj[t[0]].push_back(t[1]);
+    int idx = 0;
+    for (auto &t : tickets) {
+        adj[t[0]].insert(t[1]);
+    }
     
-    for (auto &vec : adj) sort(vec.second.begin(), vec.second.end());
-    
-    ans.push_back("ICN");
-    dfs("ICN", tickets.size() + 1);
-    
-    return ans;
+    N = tickets.size() + 1;
+    dfs("ICN");
+    return res;
 }
