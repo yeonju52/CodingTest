@@ -32,22 +32,18 @@ int main() {
         for (int j = 0; j < N; j++)
             cin >> board[i][j];
 
-    int cnt = 0;
-    memset(vis, 0, sizeof(vis));
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < N; j++)
-            if(!vis[i][j]) { bfs(i, j); cnt++; }
-    cout << cnt << " ";
-
-    // 적록색약
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < N; j++)
-            if(board[i][j] == 'G') { board[i][j] = 'R'; }
-    
-    cnt = 0;
-    memset(vis, 0, sizeof(vis));
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < N; j++)
-            if(!vis[i][j]) { bfs(i, j); cnt++; }
-    cout << cnt;
+    for (int t = 0; t < 2; t++) {
+        int cnt = 0;
+        memset(vis, 0, sizeof(vis));
+        for (int i = 0; i < N; i++)
+            for (int j = 0; j < N; j++)
+                if(!vis[i][j]) { bfs(i, j); cnt++; }
+        cout << cnt << " ";
+        
+        if (t == 1) break;
+        // 적록색약
+        for (int i = 0; i < N; i++)
+            for (int j = 0; j < N; j++)
+                if(board[i][j] == 'G') { board[i][j] = 'R'; }
+    }
 }
