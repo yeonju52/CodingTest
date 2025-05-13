@@ -29,10 +29,7 @@ int main() {
             cin >> adj[i][j];
         }
     }
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < M; j++)
-            for (int r = 0; r < 3; r++)
-                vis[i][j][r] = INF;
+    fill(&vis[0][0][0], &vis[0][0][0] + MAX * MAX * 3, INF);
 
     priority_queue<pos> pq;
     for (int j = 0; j < M; j++) {
