@@ -1,29 +1,33 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int N, K;
-int ndist[100002];
+int N, K, dp[100001];
 
-int main(){
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    fill(ndist, ndist + 100002, -1);
-    
+int main() {
     cin >> N >> K;
-    queue<int> nQ; nQ.push(N); ndist[N] = 0;
-    
-    while(!nQ.empty()){
-        int n = nQ.front(); nQ.pop();
-        if (n == K) {
-            cout << ndist[n] << '\n';
-            return 0;
+
+    queue<int> q;
+    fill(dp, dp + 100001, 100001);
+    dp[N] = 0;
+    q.push(N);
+
+    while(!q.empty()) {
+        int cur = q.front(); q.pop();
+        if (cur == K) break;
+        if (cur + 1 < 100001 && dp[cur + 1] > dp[cur] + 1) {
+            dp[cur + 1] = dp[cur] + 1;
+            q.push(cur + 1);
         }
-        int nn[3] = {n + 1, n - 1, n * 2};
-        for (int i = 0; i < 3; i++){
-            if (nn[i] < 0 || nn[i] > 100000 || ndist[nn[i]] >= 0) continue;
-            ndist[nn[i]] = ndist[n] + 1; nQ.push(nn[i]);
+        if (cur - 1 >= 0 && dp[cur - 1] > dp[cur] + 1) {
+            dp[cur - 1] = dp[cur] + 1;
+            q.push(cur - 1);
+        }
+        if (cur * 2 <= 100000 && dp[cur * 2] > dp[cur] + 1) {
+            dp[cur * 2] = dp[cur] + 1;
+            q.push(cur * 2);
         }
     }
+    cout << dp[K];
+
     return 0;
 }
