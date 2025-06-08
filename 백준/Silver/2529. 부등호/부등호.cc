@@ -6,19 +6,19 @@ using namespace std;
 int N;
 string brt, mn, mx, comp;
 
-void getBrt(char cur, string tar, string other, int n) {
+void getBrt(string tar, string other, int n) {
     if (n == N) {
         mn = min(mn, tar), mx = max(mx, tar); // get 정답
         return ;
     }
     if (comp[n] == '<') {
         for (int i = 0; i < 9 - n; i++) {
-            if (cur < other[i]) getBrt(other[i], tar + other[i], other.substr(0, i) + other.substr(i + 1), n + 1);
+            if (tar.back() < other[i]) getBrt(tar + other[i], other.substr(0, i) + other.substr(i + 1), n + 1);
         }
     }
     else {
         for (int i = 0; i < 9 - n; i++) {
-            if (cur > other[i]) getBrt(other[i], tar + other[i], other.substr(0, i) + other.substr(i + 1), n + 1);
+            if (tar.back() > other[i]) getBrt(tar + other[i], other.substr(0, i) + other.substr(i + 1), n + 1);
         }
     }
 }
@@ -37,7 +37,7 @@ int main() {
     // 3. 조합 찾기
     for (int i = 0; i <= 9; i++) {
         string allNum = "0123456789";
-        getBrt(i + '0', to_string(i), allNum.substr(0, i) + allNum.substr(i + 1), 0);
+        getBrt(to_string(i), allNum.substr(0, i) + allNum.substr(i + 1), 0);
     }
     
     cout << mx << "\n" << mn;
