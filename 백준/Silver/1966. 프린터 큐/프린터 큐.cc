@@ -10,25 +10,23 @@ int main() {
 	while(T--) {
 		cin >> N >> M;
 		queue<pair<int, int>> q;
-		priority_queue<int> maxH;
+		vector<int> pri;
 		for (int i = 0; i < N; i++) {
 			int n; cin >> n;
-			q.push({n, i}); maxH.push(n);
+			q.push({n, i}); pri.push_back(n);
 		}
 
-		int res = 0;
-		while(!q.empty()) {
-			auto cur = q.front();
-			if (cur.first == maxH.top()) {
-				q.pop(); maxH.pop();
-				res++;
-				if (cur.second == M) break;
-			}
-			else {
+		sort(pri.begin(), pri.end(), greater<int>());
+		for (int i = 0; i < N; i++) {
+			while(q.front().first != pri[i]) {
 				q.push(q.front());
 				q.pop();
 			}
+			if (q.front().second == M) {
+				cout << i + 1 << "\n";
+				break;
+			}
+			q.pop();
 		}
-		cout << res << "\n";
 	}
 }
