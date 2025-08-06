@@ -1,41 +1,41 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int N, M;
-vector<int> arr;
+vector<int> arr, vis;
+vector<string> ans;
 
-void nPm(int cur, vector<int> &vis);
+void dfs(int dep, string res) {
+	if (dep == M) {
+		ans.push_back(res);
+		return ;
+	}
+	for (int i = 0; i < N; i++) {
+		if (vis[i]) continue;
+		vis[i] = 1;
+		dfs(dep + 1, res + to_string(arr[i]) + " ");
+		vis[i] = 0;
+	}
 
-int main() {
-  cin >> N >> M;
-
-  for (int i = 0; i < N; i++) {
-    int v; cin >> v;
-    arr.push_back(v);
-  }
-  sort(arr.begin(), unique(arr.begin(), arr.end()));
-  N = arr.size();
-
-  vector<int> vis(M, 0);
-  nPm(0, vis);
 }
 
-void nPm(int cur, vector<int> &vis) {
-  if (cur == M) {
-    for (auto &v : vis) {
-      cout << v << " ";
-    }
-    cout << "\n";
-    return;
-  }
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
 
-  for (int i = 0; i < N; i++) {
-    if (find(vis.begin(), vis.end(), arr[i]) != vis.end()) continue;
-    vis[cur] = arr[i];
-    nPm(cur + 1, vis);
-    vis[cur] = 0;
-  }
+	cin >> N >> M;
+
+	for (int i = 0; i < N; i++) {
+		int n; cin >> n;
+		arr.push_back(n);
+	}
+	
+	sort(arr.begin(), arr.end());
+	arr.erase(unique(arr.begin(), arr.end()), arr.end());
+
+	vis.resize(N, 0);
+	dfs(0, "");
+
+	for (const auto &s : ans) cout << s << "\n";
 }
