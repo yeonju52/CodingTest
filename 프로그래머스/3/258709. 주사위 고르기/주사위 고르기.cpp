@@ -2,24 +2,10 @@
 
 using namespace std;
 
-int N;
-vector<vector<int>> arr, rev;
-vector<vector<int>> rec, rrec;
-
-void record_dice(string brt, vector<vector<int>> &dice) {
-    int M = arr.size();
-    for (int i = 0; i < M; i++) { // 주사위의 조합
-        int ret = 0;
-        for (auto &cur : brt) ret += dice[i][cur];
-        rec[i].push_back(ret);
-        int ret2 = 0;
-        for (auto &cur : brt) ret2 += dice[i][cur];
-        rec[i].push_back(ret);
-    }
-}
+int N, T;
 
 void dice_comb(int idx, int sum, vector<int> &team, vector<vector<int>> &dice, vector<int> &res) {
-    if (idx == team.size()) {
+    if (idx == T) {
         res.push_back(sum);
         return;
     }
@@ -44,7 +30,9 @@ vector<int> solution(vector<vector<int>> dice) {
             else B.push_back(i);
         }
         vector<int> arrA, arrB;
+        T = A.size();
         dice_comb(0, 0, A, dice, arrA);
+        T = B.size();
         dice_comb(0, 0, B, dice, arrB);
         
         sort(arrB.begin(), arrB.end());
