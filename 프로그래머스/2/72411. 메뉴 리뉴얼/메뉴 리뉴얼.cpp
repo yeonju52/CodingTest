@@ -2,6 +2,15 @@
 
 using namespace std;
 
+int popcount(int val) {
+    int cnt = 0;
+    while (val) {
+        if (val & 1) cnt++;
+        val >>= 1;
+    }
+    return cnt;
+}
+
 vector<string> solution(vector<string> orders, vector<int> course) {
     vector<string> answer;
     
@@ -19,18 +28,18 @@ vector<string> solution(vector<string> orders, vector<int> course) {
     int M = alpha_set.size();
     vector<char> alpha(alpha_set.begin(), alpha_set.end());
     sort(alpha.begin(), alpha.end());
+    
     for (auto &cur : course) {
-        vector<int> brt(M, 0);
-        fill(brt.end() - cur, brt.end(), 1);
         vector<string> res;
         int mxCnt = 0;
-        do {
+        for (int brt = 0; brt < (1 << M); brt++) {
+            if (popcount(brt) != cur) continue;
             string star = "";
             int tar = 0;
             for (int i = 0; i < M; i++) {
-                if (brt[i] == 1) {
+                if (brt &  (1 << i)) {
                     star += alpha[i];
-                    tar += (1 << (alpha[i] - 'A'));
+                    tar += (1 << (alpha[i] - 'A'));   
                 }
             }
             int cnt = 0;
@@ -46,7 +55,7 @@ vector<string> solution(vector<string> orders, vector<int> course) {
             else if (mxCnt == cnt) {
                 res.push_back(star);
             }
-        } while(next_permutation(brt.begin(), brt.end()));
+        }
         
         answer.insert(answer.end(), res.begin(), res.end());
     }
