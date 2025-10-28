@@ -15,5 +15,5 @@ int main() {
 			dp[j] = max(dp[j], dp[j - HP[i]] + joy[i]);
 		}
 	}
-	cout << *max_element(dp.begin() + 1, dp.end());
+	cout << dp[100];
 }
