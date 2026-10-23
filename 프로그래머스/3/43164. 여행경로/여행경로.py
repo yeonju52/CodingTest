@@ -20,19 +20,19 @@ def solution(tickets):
     
     print(arr)
     path = deque(["ICN"])
-    def dfs(cur, dep, path):
+    def dfs(dep, path):
         nonlocal answer
         if dep == N:
             answer = list(path)
             return
         if answer: return # 가지 치기 필수
-        for nxt, i in arr.get(cur, []):
+        for nxt, i in arr.get(path[-1], []):
             if vis[i]: continue
             path.append(nxt)
             vis[i] = 1
-            dfs(nxt, dep + 1, path)
+            dfs(dep + 1, path)
             path.pop()
             vis[i] = 0
     
-    dfs(st, 0, path)
+    dfs(0, path)
     return answer
