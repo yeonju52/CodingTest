@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(10**6)
+
 def solution(begin, target, words):
     M = len(begin) # 글씨체
     N = len(words)
