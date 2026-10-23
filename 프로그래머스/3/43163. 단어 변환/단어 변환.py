@@ -28,11 +28,10 @@ def solution(begin, target, words):
         if dep >= ans:
             return
         for i in range(N):
-            w = words[i]
-            if vis[i] or not isValid(cur, w):
+            if vis[i] or not isValid(cur, words[i]):
                 continue
             vis[i] = 1
-            bt(w, dep + 1)
+            bt(words[i], dep + 1)
             vis[i] = 0
     
     bt(begin, 0)
