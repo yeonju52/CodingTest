@@ -17,12 +17,15 @@ def solution(begin, target, words):
     vis = [0 for _ in range(N)]
     
     INF = 123456789
-    ans = [INF]
+    ans = INF
 
     # 백트래킹 구현
     def bt(cur, dep):
+        nonlocal ans
         if cur == target:
-            ans[0] = min(ans[0], dep)
+            ans = min(ans, dep)
+            return
+        if dep >= ans:
             return
         for i in range(N):
             w = words[i]
@@ -34,4 +37,4 @@ def solution(begin, target, words):
     
     bt(begin, 0)
     
-    return 0 if ans[0] == INF else ans[0]
+    return 0 if ans == INF else ans
